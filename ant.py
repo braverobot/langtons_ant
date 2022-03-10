@@ -1,7 +1,6 @@
 # Langston's Ant Class
 # 11/27/2021
 # Coding it for fun
-from random import randrange
 
 
 class Ant:
@@ -47,7 +46,6 @@ class Ant:
             self._under_ant = '#'
 
         self._game_board[self._ant_loc_row - 1][self._ant_loc_col - 1] = self._under_ant
-        # print(f'colors swapped to {self._under_ant}')
 
     def move_ant(self):
         '''This method will control the movement of the ant. It will take
@@ -58,7 +56,6 @@ class Ant:
         # right = 1
         # down = 2
         # left = 3
-        # print(f'direction: {self._ant_direction}')
         self.flop_color()
         if self._ant_direction == 0:
             self._ant_loc_row -= 1
@@ -91,11 +88,8 @@ class Ant:
                 self._ant_direction = 0
             else:
                 self._ant_direction += 1
-        
-        # print(f'new direction: {self._ant_direction}')
 
         self._game_board[self._ant_loc_row - 1][self._ant_loc_col - 1] = '*'
-        # print(f'Ant Location- row: {self._ant_loc_row}, col: {self._ant_loc_col}')
 
     def draw_board(self):
         '''Draw the board at the beginning of the game and after every move
@@ -104,7 +98,7 @@ class Ant:
         '''
         for row in self._game_board:
             print(*row)
-        # print('board drawn')
+
     def build_board(self):
         '''Use this method to construct a board of all white spaces and
         use the data members for the board size
@@ -122,7 +116,6 @@ class Ant:
 
         # Start the steps and run them while counting down to zero
         while self._counter != self._num_steps:
-            # print(f'Step Number: {self._num_steps}')
             self._num_steps -= 1
             self.draw_board()
             self.move_ant()

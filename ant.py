@@ -125,7 +125,7 @@ def begin_ant(play_decision):
     '''Star Langstons Ant. Take play_decision as a parameter to
     decide if it should continue or end
     '''
-    if play_decision == 'y':
+    if play_decision == 'yes' or play_decision == 'y':
         # num_columns = int(input('how many rows? :'))
         # num_rows = int(input('how many columns? :'))
         # num_steps = int(input('how many moves (steps)? :'))
@@ -133,12 +133,12 @@ def begin_ant(play_decision):
         # ant_loc_col = int(input('whats the starting column? :'))
         # ant_direction = randrange(4)
         # ant_map = Ant(num_columns, num_rows,
-        #               num_steps, ant_loc_row,
+        #               num_steps, ant_loc_row,s
         #               ant_loc_col, ant_direction)
 
         # USE THE BELOW FOR TESTING AND REVERT TO ABOVE FOR FINISH
         ant_map = Ant(100, 128,
-                      12000, 50,
+                      500, 50,
                       64, 1)
         ant_map.build_board()
 
@@ -149,8 +149,9 @@ def menu():
     not return anything
     '''
     start_or_end = ''
-    while start_or_end != 'y' and start_or_end != 'n':
-        start_or_end = input('Would you like to start Langston\'s Ant? :')
+    choice = ["y", "n", "yes", "no"]
+    while start_or_end not in choice:
+        start_or_end = input('Start Langston\'s Ant? :').lower()
     return start_or_end
 
 
